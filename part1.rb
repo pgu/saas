@@ -18,8 +18,7 @@ test_palindrome?("Abracadabra", false)
 
 def count_words(string)
   h = Hash.new(0)
-  a = string.downcase.split(/\b\W+\b/i)
-  a.each { |i| h[i] += 1 }
+  string.downcase.split(/\b\W+\b/i).each { |i| h[i] += 1 }
   return h
 end
 
@@ -32,6 +31,7 @@ def test_count_words()
   actual = count_words(text)
   puts "[#{text}]? #{actual == expected}" 
   puts actual.inspect
+  puts
 
   text = "Doo bee doo bee doo"
   expected = {'doo' => 3, 'bee' => 2}
